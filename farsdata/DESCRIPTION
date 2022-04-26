@@ -1,0 +1,26 @@
+Package: farsdata
+Title: A package to analyze traffic accidents using data from the FARS.
+Version: 0.0.0.9000
+Author@R: 
+    person(given = "Esther",
+             family = "Camacho",
+             role = c("aut", "cre"))
+Description: The `farsdata` package contains functions to analyze traffic accidents using data from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System(FARS).
+License: CC0
+Imports: 
+    dplyr,
+    magrittr,
+    tidyr,
+    rlang,
+    graphics,
+    maps,
+    testthat
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2

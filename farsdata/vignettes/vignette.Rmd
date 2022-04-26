@@ -1,0 +1,53 @@
+---
+title: "Assignment Week 2: Making a package with farsdata"
+author: "Esther Camacho"
+date: '`r Sys.Date()`'
+output: 
+    BiocStyle::html_document:
+        toc_float:
+            collapsed: true
+            smooth_scroll: false
+vignette: >
+  %\VignetteIndexEntry{Example_microarray_analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+# knitr::opts_chunk$set(collapse = TRUE,  comment = "#>")
+# knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Farsdata
+
+The `farsdata` package contains functions to analyze traffic accidents using data from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System(FARS).
+
+## Functions
+
+The functions present in this package are: 
+
+* fars_read
+    + The function fars_read reads the file used as argument. The input file has to be in csv format and the function returns a dataframe of type tibble. If the file does not exist an error will be printed.
+
+* make_filename
+    + The function make_filename creates data files by year in bz2 format. It transforms the argument year into an interger and sends the determined name of the file to a string.
+
+* fars_read_years
+    + The function fars_read_years accepts a list of one or more years and calls the function make_filename() with the years. Then, it fills the files with the data of its specific year.
+
+* fars_summarize_years
+    + The function fars_summarize_years accepts a list of one or more years and passes the list to fars_read_years(). Then it receives from fars_read_years() a data set in columns month and year, and counts the number of observations for a year by month.
+
+* fars_map_state
+    + The function fars_map_state accepts a state number and a year as arguments. With make_filename function it creates the filename and with fars_read it obtains the corresponding data frame. It gives an error if the state number does not exist. Otherwise it creates plots based on latitude and longitude, using maps and graphics.
+
+## Dependencies
+
+* dplyr
+* magrittr
+* tidyr
+* rlang
+* graphics
+* maps
+* testthat
+
