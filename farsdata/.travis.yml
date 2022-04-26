@@ -1,0 +1,8 @@
+# R for Travis:
+
+language: R
+
+sudo: false
+
+cache: packages
+
